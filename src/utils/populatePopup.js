@@ -26,7 +26,7 @@ const comments = (pokemon, commentLink, i) => {
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
                                   <div class="px-5">
-                                    <div class="row p-5">
+                                    <div class="row">
                                     <div class="col-8  align-left characteristics ml-4">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
                                         <p><b>Abilities:</b> ${abilities.join(', ')}</p>

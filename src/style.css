@@ -23,7 +23,7 @@ footer {
 
 .comments-form {
   text-align: left;
-  width: 40%;
+  width: 50%;
   margin: auto;
 }
 
@@ -40,10 +40,10 @@ input {
   border: 2px black solid;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .comments-form {
     text-align: left;
-    width: 90%;
+    width: 100%;
     margin: auto;
   }
 
