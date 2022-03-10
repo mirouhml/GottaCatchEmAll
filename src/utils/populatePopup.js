@@ -33,8 +33,8 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>
                                   
                                       <div class="col-4 align-left characteristics">
-                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
-                                        <p><b>Height:</b> ${pokemon.height}m</p>
+                                        <p><b>Weight:</b> ${pokemon.weight/10}kg</p>
+                                        <p><b>Height:</b> ${pokemon.height/10}m</p>
                                       </div>    
                                     </div>
                                   </div>
