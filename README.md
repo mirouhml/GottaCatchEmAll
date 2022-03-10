@@ -18,7 +18,7 @@
 
 ## Live demo
 
-You can visit live version via [link](https://amiraabouhadid.github.io/GottaCatchEmAll/)
+You can visit live version via [link](https://mirouhml.github.io/GottaCatchEmAll/).
 
 ## Getting Started
 
