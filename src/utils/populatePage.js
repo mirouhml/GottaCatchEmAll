@@ -2,6 +2,7 @@ import createCard from './createCard';
 import Item from '../modules/Item';
 import itemsCounter from './itemsCounter';
 import app from '../modules/App';
+import Paginator from '../modules/Paginator'
 
 const populatePage = async (requestURL) => {
   const container = document.getElementById('container');
@@ -22,6 +23,7 @@ const populatePage = async (requestURL) => {
     .then((json) => {
       itemsCount = json.results.length;
       itemsCounter(itemsCount, requestURL);
+      const cards = [];
       json.results.forEach((entity, i) => {
         const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
         const itemsLikes = likesArr.filter(
@@ -30,9 +32,9 @@ const populatePage = async (requestURL) => {
         if (itemsLikes.length > 0) {
           item.likes = itemsLikes[0].likes;
         }
-
-        createCard(item, container, i);
+        createCard(item, i).then((json) => cards.push(json))
       });
+      setTimeout(() => {const paginator = new Paginator(cards,20,1,document.getElementById('paginator'),container,5)}, 5000);
     });
 };
 export default populatePage;

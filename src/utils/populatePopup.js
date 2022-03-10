@@ -1,7 +1,7 @@
 import { addComment, getComments } from './commentsHandler';
 
 const comments = (pokemon, commentLink, i) => {
-  const container = document.getElementById('container');
+  const container = document.getElementById('cards-container');
   const commentPopup = document.createElement('div');
   commentPopup.className = 'modal fade';
   commentPopup.setAttribute('id', `modal${i}`);

@@ -8,8 +8,12 @@ const createCardImg = async (item, cardImg, commentsLink, i) => {
     await fetch(`${item.url}`)
       .then((response) => response.json())
       .then((json) => {
+        const image = json.sprites.other['official-artwork'].front_default;
         comments(json, commentsLink, i);
-        cardImg.src = `${json.sprites.other.dream_world.front_default}`;
+        if (image)
+          cardImg.src = image;
+        else
+          cardImg.src = `${json.sprites.front_default}`;
         cardImg.alt = `${item.name}`;
       });
   }

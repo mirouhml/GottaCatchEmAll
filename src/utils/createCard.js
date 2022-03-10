@@ -1,7 +1,7 @@
 import createCardImg from './createCardImg';
 import addLike from './addLike';
 
-const createCard = async (item, container, i) => {
+const createCard = async (item, i) => {
   /// create card
   const card = document.createElement('div');
   card.id = item.id;
@@ -16,7 +16,6 @@ const createCard = async (item, container, i) => {
   // create card img
   const cardImg = document.createElement('img');
   cardImg.classList = 'card-img-top p-4';
-  cardImg.height = '150';
 
   createCardImg(item, cardImg, commentsLink, i);
 
@@ -56,6 +55,7 @@ const createCard = async (item, container, i) => {
   card.appendChild(cardImg);
   card.appendChild(cardText);
   card.style = 'width: 18rem;';
-  container.appendChild(card);
+  
+  return card;
 };
 export default (createCard);
