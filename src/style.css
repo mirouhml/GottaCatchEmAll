@@ -90,6 +90,7 @@ h5 {
 
 .card {
   transition: 300ms;
+  box-shadow: 0 15px 30px 1px rgb(68, 68, 68);
 }
 
 .card:hover {
