@@ -55,7 +55,7 @@ const createCard = async (item, i) => {
   card.appendChild(cardImg);
   card.appendChild(cardText);
   card.style = 'width: 18rem;';
-  
+
   return card;
 };
 export default (createCard);

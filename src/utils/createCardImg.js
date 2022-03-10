@@ -10,10 +10,7 @@ const createCardImg = async (item, cardImg, commentsLink, i) => {
       .then((json) => {
         const image = json.sprites.other['official-artwork'].front_default;
         comments(json, commentsLink, i);
-        if (image)
-          cardImg.src = image;
-        else
-          cardImg.src = `${json.sprites.front_default}`;
+        if (image) { cardImg.src = image; } else { cardImg.src = `${json.sprites.front_default}`; }
         cardImg.alt = `${item.name}`;
       });
   }
