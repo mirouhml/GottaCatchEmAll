@@ -2,8 +2,10 @@
   overflow-x: hidden;
 }
 
-body {
-  background-color: blue;
+body,
+#pages {
+  background-color: #131313 !important;
+  overflow: hidden !important;
 }
 
 footer {
@@ -127,4 +129,15 @@ ul {
 
 .no-display {
   display: none !important;
+}
+
+#loading {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.navbar-nav > li {
+  padding-left: 90px;
+  padding-right: 90px;
 }

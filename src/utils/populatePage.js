@@ -9,6 +9,13 @@ const populatePage = async (requestURL) => {
   container.innerHTML = '';
   const pages = document.getElementById('paginator');
   pages.innerHTML = '';
+  const pagesContainer = document.getElementById('cards-container');
+  const image = document.createElement('img');
+  image.src = './assets/loading.gif';
+  image.alt = 'Loading image';
+  image.id = 'loading';
+  document.documentElement.style.overflow = 'hidden';
+  pagesContainer.appendChild(image);
   const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/likes`;
   let likesArr;
   let itemsCount;
@@ -34,8 +41,11 @@ const populatePage = async (requestURL) => {
         }
         createCard(item, i).then((json) => cards.push(json))
       });
-    }).then(() => {
-      new Paginator(cards,20,1,pages,container,5)
     });
+    setTimeout(() => {
+      new Paginator(cards,20,1,pages,container,5)
+      pagesContainer.removeChild(image);
+      document.documentElement.style.overflow = '';
+    }, 2000)
 };
 export default populatePage;

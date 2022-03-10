@@ -1,7 +1,7 @@
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
+import './assets/loading.gif';
 import Nav from './modules/Nav';
 
 const baseURL = 'https://pokeapi.co/api/v2/';

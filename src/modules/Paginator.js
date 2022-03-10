@@ -83,9 +83,7 @@ export default class Paginator {
     const trimEnd = trimStart + this.numberPerPage
     const trimmedArray = this.listArray.slice(trimStart, trimEnd);
     this.container.innerHTML = '';
-    console.log(trimmedArray,this.listArray);
     trimmedArray.forEach(trim => {
-      console.log(trim)
       this.container.appendChild(trim);
     })
   }
