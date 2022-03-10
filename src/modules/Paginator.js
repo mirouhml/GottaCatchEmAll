@@ -29,10 +29,12 @@ export default class Paginator {
     const currPageNum = this.accomodatePage(clickedPage)
     if (this.numberOfPages >= this.maxPages) {
         for (let i=-1; i<this.maxPages - 1; i++) {
+          if (currPageNum+i<=this.numberOfPages) { 
             const element = document.createElement('li');
             element.className = 'page-item';
             element.innerHTML = `<a class="page-link" href="#">${currPageNum+i}</a>`;
             this.pagesContainer.appendChild(element);
+          } 
         }
     } else {
         for (let i=0; i<this.numberOfPages; i++) {
