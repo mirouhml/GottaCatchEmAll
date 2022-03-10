@@ -1,7 +1,7 @@
 import { addComment, getComments } from './commentsHandler';
 
 const comments = (pokemon, commentLink, i) => {
-  const container = document.getElementById('container');
+  const container = document.getElementById('cards-container');
   const commentPopup = document.createElement('div');
   commentPopup.className = 'modal fade';
   commentPopup.setAttribute('id', `modal${i}`);
@@ -26,15 +26,15 @@ const comments = (pokemon, commentLink, i) => {
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
                                   <div class="px-5">
-                                    <div class="row p-5">
+                                    <div class="row">
                                     <div class="col-8  align-left characteristics ml-4">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
                                         <p><b>Abilities:</b> ${abilities.join(', ')}</p>
                                       </div>
                                   
                                       <div class="col-4 align-left characteristics">
-                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
-                                        <p><b>Height:</b> ${pokemon.height}m</p>
+                                        <p><b>Weight:</b> ${pokemon.weight / 10}kg</p>
+                                        <p><b>Height:</b> ${pokemon.height / 10}m</p>
                                       </div>    
                                     </div>
                                   </div>
@@ -55,7 +55,7 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>
                                       <div class="d-flex flex-column">
                                         <small id="status${i}" class="py-2"></small>
-                                        <div d-grid gap-2 d-md-block>
+                                        <div class="d-flex justify-content-center">
                                           <button class="btn btn-outline-primary m-1" type="button" id="button${i}" ml-2>Comment</button>
                                         </div>
                                       </div>
