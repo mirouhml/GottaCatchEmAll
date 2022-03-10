@@ -58,7 +58,7 @@ const populatePage = async (requestURL) => {
         createCard(item, i).then((json) => cards.push(json));
       });
     }).then(() => {
-      const paginator = new Paginator(cards, 21, 1, pages, container, 5);
+      const paginator = new Paginator(cards, 20, 1, pages, container, 5);
       paginator.init();
     });
   setTimeout(() => {

@@ -20,19 +20,19 @@ const comments = (pokemon, commentLink, i) => {
                                 <div class="modal-header border-0">
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body text-center px-5">
-                                  <div class="px-5">
+                                <div class="modal-body text-center">
+                                  <div>
                                     <img src="${pokemon.sprites.other['official-artwork'].front_default}" width="200rem" alt="${pokemon.forms[0].name}" />
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
-                                  <div class="px-5">
-                                    <div class="row">
-                                    <div class="col-8  align-left characteristics ml-4">
+                                  <div>
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-3  align-left characteristics ml-4">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
                                         <p><b>Abilities:</b> ${abilities.join(', ')}</p>
                                       </div>
                                   
-                                      <div class="col-4 align-left characteristics">
+                                      <div class="col-3 align-left characteristics">
                                         <p><b>Weight:</b> ${pokemon.weight / 10}kg</p>
                                         <p><b>Height:</b> ${pokemon.height / 10}m</p>
                                       </div>    
@@ -40,7 +40,7 @@ const comments = (pokemon, commentLink, i) => {
                                   </div>
                                   <div>
                                     <h4 id="comments-title-${i}">Comments(0)</h4>
-                                    <div id="comments${i}" class="align-left w-75 comments"></div>
+                                    <div id="comments${i}" class="align-left w-50 comments"></div>
                                   </div>
                                   <div class="my-4 ">
                                     <h4>
