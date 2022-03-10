@@ -21,14 +21,26 @@ const populatePage = async (requestURL) => {
   document.documentElement.style.overflow = 'hidden';
   pagesContainer.appendChild(image);
   const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/likes`;
-  let likesArr;
+  let likesArr = [];
   let itemsCount;
 
-  await fetch(likesURL)
-    .then((response) => response.json())
-    .then((json) => {
-      likesArr = json;
-    });
+  const myPromise = new Promise((resolve) => {
+    fetch(likesURL)
+      .then((response) => {
+        if (response.ok) {
+          resolve(response.json());
+        }
+      });
+  });
+
+  myPromise.then(
+    (value) => {
+      value.forEach((json) => {
+        likesArr = json;
+      });
+    },
+  );
+
   const cards = [];
   await fetch(requestURL)
     .then((response) => response.json())
@@ -46,7 +58,7 @@ const populatePage = async (requestURL) => {
         createCard(item, i).then((json) => cards.push(json));
       });
     }).then(() => {
-      const paginator = new Paginator(cards, 20, 1, pages, container, 5);
+      const paginator = new Paginator(cards, 21, 1, pages, container, 5);
       paginator.init();
     });
   setTimeout(() => {
