@@ -10,12 +10,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="bg-dark">
     <header class="container-fluid fixed-top bg-white">
         <nav class="navbar p-1 border-bottom justify-content-around">
             <a href="" class="nav-link" id='home-logo'>
                 <img src="https://i.ibb.co/Q88mpFd/pokemon-symbol-logo-png-31.png" alt="pokemon-symbol-logo-png-31"
-                    width="80">
+                    width="50">
             </a>
             <a href="" id='home' class="nav-link text-dark n-link">Pokemons </a>
             <a href="" id='types' class="nav-link text-dark n-link">Types</a>
@@ -23,19 +23,19 @@
 
         </nav>
     </header>
-    <div id="cards-container" class="d-flex flex-column bg-dark p-5 mt-5 justify-content-center">
+    <div id="cards-container" class="d-flex flex-column px-5 pt-5 my-5 justify-content-center">
         <div id='container' class="d-flex row justify-content-around"></div>
-        <div class='d-flex justify-content-center'>
-            <ul class="pagination pagination-lg" id="paginator"></ul>
-        </div>
     </div>
-
-    <footer class="bg-secondary border d-flex row justify-content-center align-items-center">
-        <div class="text-light text-center">
-            Copyrights <i class="fas fa-copyright"></i> Amira Abouhadid & Ammar Hamlaoui
+    <div class='d-flex flex-column fixed-bottom'>
+        <div id="pages" class="d-flex bg-dark py-2 justify-content-center">
+            <ul class="pagination" id="paginator"></ul>
         </div>
-
-    </footer>
+        <footer class="d-flex bg-secondary justify-content-center align-items-center">
+            <div class=" text-light text-center">
+                Copyrights <i class="fas fa-copyright"></i> Amira Abouhadid & Ammar Hamlaoui
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

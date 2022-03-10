@@ -7,7 +7,8 @@ import Paginator from '../modules/Paginator'
 const populatePage = async (requestURL) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
-
+  const pages = document.getElementById('paginator');
+  pages.innerHTML = '';
   const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/likes`;
   let likesArr;
   let itemsCount;
@@ -17,13 +18,12 @@ const populatePage = async (requestURL) => {
     .then((json) => {
       likesArr = json;
   });
-
+  const cards = [];
   await fetch(requestURL)
     .then((response) => response.json())
     .then((json) => {
       itemsCount = json.results.length;
       itemsCounter(itemsCount, requestURL);
-      const cards = [];
       json.results.forEach((entity, i) => {
         const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
         const itemsLikes = likesArr.filter(
@@ -34,7 +34,8 @@ const populatePage = async (requestURL) => {
         }
         createCard(item, i).then((json) => cards.push(json))
       });
-      setTimeout(() => {const paginator = new Paginator(cards,20,1,document.getElementById('paginator'),container,5)}, 5000);
+    }).then(() => {
+      new Paginator(cards,20,1,pages,container,5)
     });
 };
 export default populatePage;

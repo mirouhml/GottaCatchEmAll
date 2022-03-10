@@ -55,7 +55,7 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>
                                       <div class="d-flex flex-column">
                                         <small id="status${i}" class="py-2"></small>
-                                        <div d-grid gap-2 d-md-block>
+                                        <div class="d-flex justify-content-center">
                                           <button class="btn btn-outline-primary m-1" type="button" id="button${i}" ml-2>Comment</button>
                                         </div>
                                       </div>
