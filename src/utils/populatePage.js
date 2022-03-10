@@ -15,7 +15,8 @@ const populatePage = async (requestURL) => {
     .then((response) => response.json())
     .then((json) => {
       likesArr = json;
-    });
+  });
+
   await fetch(requestURL)
     .then((response) => response.json())
     .then((json) => {
