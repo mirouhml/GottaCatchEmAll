@@ -38,9 +38,9 @@ const createCard = async (item, i) => {
   const likesNum = document.createElement('p');
   if (localStorage.getItem('likes')) {
     const likes = JSON.parse(localStorage.getItem('likes'));
-    if (likes.filter(like => like === item.id).length === 1) {
+    if (likes.filter((like) => like === item.id).length === 1) {
       likeButton.classList.toggle('is-active');
-    } 
+    }
   }
   likeButton.onclick = (e) => {
     e.preventDefault();

@@ -16,7 +16,7 @@ const comments = (pokemon, commentLink, i) => {
     abilities.push(ability.ability.name);
   });
   let image = pokemon.sprites.other['official-artwork'].front_default;
-  if (!image) {image = `${pokemon.sprites.front_default}`; }
+  if (!image) { image = `${pokemon.sprites.front_default}`; }
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
                               <div class="modal-content container-fluid">
                                 <div class="modal-header border-0">
