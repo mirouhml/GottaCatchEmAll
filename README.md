@@ -27,7 +27,7 @@ To get a local copy up and running follow these simple example steps:
 - Change the current working directory to the location you want the cloned directory.
 - Enter the following:
 ```
-$ git clone git@github.com:amiraabouhadid/GottaCatchEmAll.git.
+$ git clone git@github.com:mirouhml/GottaCatchEmAll.git.
 ```
 - Press Enter to create your local clone.
 - Navigate to the cloned repository by running:
