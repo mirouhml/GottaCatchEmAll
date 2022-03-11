@@ -12,11 +12,9 @@ export default class Paginator {
   }
 
   init() {
-    const pages = document.getElementById('pages');
+    const pages = this.pagesContainer;
     this.buildPage(1);
     if (this.numberOfPages !== 1) {
-      pages.classList.remove('no-display');
-      pages.classList.add('d-flex');
       this.buildPagination(this.currentPage);
       document.getElementById('paginator').onclick = (e) => {
         if (e.target.id === 'previous' || e.target.textContent === '«') {
@@ -35,9 +33,9 @@ export default class Paginator {
           this.buildPage(clickedPage);
         }
       };
+      return true;
     } else if (this.numberOfPages === 1) {
-      pages.classList.add('no-display');
-      pages.classList.remove('d-flex');
+      return false;
     }
   }
 
