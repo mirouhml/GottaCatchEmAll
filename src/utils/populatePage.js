@@ -33,7 +33,6 @@ const populatePage = async (requestURL) => {
   })
   promise.then((json) => {
     likesArr = json;
-    console.log('here')
     const cards = [];
     const promise2 = new Promise((resolve) => {
       fetch(requestURL)
@@ -57,19 +56,17 @@ const populatePage = async (requestURL) => {
     promise2.then(() => {
       const paginator = new Paginator(cards, 20, pages, container, 5);
       const ok = paginator.init();
-      setTimeout(() => {
-        container.classList.remove('no-display');
-        container.classList.add('d-flex');
-        pagesContainer.removeChild(image);
-        document.documentElement.style.overflow = '';
-        if (ok) {
-          pages.classList.remove('no-display');
-          pages.classList.add('d-flex');
-        } else {
-          pages.classList.add('no-display');
-          pages.classList.remove('d-flex');
-        }
-      }, 3000);
+      container.classList.remove('no-display');
+      container.classList.add('d-flex');
+      pagesContainer.removeChild(image);
+      document.documentElement.style.overflow = '';
+      if (ok) {
+        pages.classList.remove('no-display');
+        pages.classList.add('d-flex');
+      } else {
+        pages.classList.add('no-display');
+        pages.classList.remove('d-flex');
+      }
     });
   });
 }

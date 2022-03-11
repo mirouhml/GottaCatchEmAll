@@ -15,7 +15,7 @@ const createCard = async (item, i) => {
 
   // create card img
   const cardImg = document.createElement('img');
-  cardImg.classList = 'card-img-top p-4';
+  cardImg.classList = 'card-img-top';
 
   createCardImg(item, cardImg, commentsLink, i);
 
@@ -27,29 +27,39 @@ const createCard = async (item, i) => {
   const header = document.createElement('div');
   header.classList = ' card-title row ';
   cardTitle.innerHTML = `${item.name.toUpperCase()}`;
-  cardTitle.classList = 'col-10';
+  cardTitle.classList = 'col-12';
 
   /// create like Button
-  const likeButton = document.createElement('a');
-  likeButton.innerHTML = "<i class='far fa-heart'></i>";
-  likeButton.classList = 'col-2 text-dark';
+  const likeButtonContainer = document.createElement('div');
+  likeButtonContainer.classList = 'd-flex align-items-center';
+  const likeButton = document.createElement('div');
+  likeButton.classList.add('heart');
+  likeButton.classList.add('ms-auto');
   const likesNum = document.createElement('p');
+  if (localStorage.getItem('likes')) {
+    const likes = JSON.parse(localStorage.getItem('likes'));
+    if (likes.filter(like => like === item.id).length === 1) {
+      likeButton.classList.toggle('is-active');
+    } 
+  }
   likeButton.onclick = (e) => {
     e.preventDefault();
-    addLike(item, likesNum);
+    addLike(item, likesNum, likeButton);
   };
+
   /// create likes Count
   const likesCount = document.createElement('div');
-  likesNum.classList = 'likes-count';
-  likesCount.classList = ' my-1';
+  likesNum.classList = 'likes-count pt-4 mt-2';
   likesNum.innerHTML = `${item.likes} likes`;
   /// append children
   likesCount.appendChild(likesNum);
+  likeButtonContainer.appendChild(likesCount);
+  likeButtonContainer.appendChild(likeButton);
+
   header.appendChild(cardTitle);
-  header.appendChild(likeButton);
+  header.appendChild(likeButtonContainer);
 
   cardText.appendChild(header);
-  cardText.appendChild(likesCount);
 
   cardText.appendChild(commentsLink);
   card.appendChild(cardImg);
