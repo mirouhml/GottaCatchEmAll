@@ -55,7 +55,7 @@ const populatePage = async (requestURL) => {
       });
     });
     promise2.then(() => {
-      const paginator = new Paginator(cards, 20, 1, pages, container, 5);
+      const paginator = new Paginator(cards, 20, pages, container, 5);
       const ok = paginator.init();
       setTimeout(() => {
         container.classList.remove('no-display');
