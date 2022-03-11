@@ -15,6 +15,8 @@ const comments = (pokemon, commentLink, i) => {
   pokemon.abilities.forEach((ability) => {
     abilities.push(ability.ability.name);
   });
+  let image = pokemon.sprites.other['official-artwork'].front_default;
+  if (!image) { image = `${pokemon.sprites.front_default}`; }
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
                               <div class="modal-content container-fluid">
                                 <div class="modal-header border-0">
@@ -22,7 +24,7 @@ const comments = (pokemon, commentLink, i) => {
                                 </div>
                                 <div class="modal-body text-center">
                                   <div>
-                                    <img src="${pokemon.sprites.other['official-artwork'].front_default}" width="200rem" alt="${pokemon.forms[0].name}" />
+                                    <img src="${image}" width="200rem" alt="${pokemon.forms[0].name}" />
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
                                   <div>
@@ -73,10 +75,10 @@ const comments = (pokemon, commentLink, i) => {
     const status = document.getElementById(`status${i}`);
     if (name.value === '' || insight.value === '') {
       status.innerHTML = 'Please fill both fields before submitting.';
-      status.classList.add('red');
+      status.classList.add('red-color');
       setTimeout(() => {
         status.innerHTML = '';
-        status.classList.remove('red');
+        status.classList.remove('red-color');
       }, 2400);
     } else {
       const comment = {
@@ -99,10 +101,10 @@ const comments = (pokemon, commentLink, i) => {
         () => {
           const error = 'An error occurred while adding your comment, please try again shortly.';
           status.innerHTML = error;
-          status.classList.add('red');
+          status.classList.add('red-color');
           setTimeout(() => {
             status.innerHTML = '';
-            status.classList.remove('red');
+            status.classList.remove('red-color');
           }, 2400);
         },
       );

@@ -25,53 +25,50 @@ const populatePage = async (requestURL) => {
   let itemsCount;
   const promise = new Promise((resolve) => {
     fetch(likesURL)
-    .then((response) => {
-      if (response.ok) {
-        resolve(response.json());
-      }
-    });
-  })
+      .then((response) => {
+        if (response.ok) {
+          resolve(response.json());
+        }
+      });
+  });
   promise.then((json) => {
     likesArr = json;
-    console.log('here')
     const cards = [];
     const promise2 = new Promise((resolve) => {
       fetch(requestURL)
-      .then((response) => response.json())
-      .then((json) => {
-        itemsCount = json.results.length;
-        itemsCounter(itemsCount, requestURL);
-        json.results.forEach((entity, i) => {
-          const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
-          const itemsLikes = likesArr.filter(
-            (el) => el.item_id === `${entity.name + i}`,
-          );
-          if (itemsLikes.length > 0) {
-            item.likes = itemsLikes[0].likes;
-          }
-          createCard(item, i).then((json) => cards.push(json));
+        .then((response) => response.json())
+        .then((json) => {
+          itemsCount = json.results.length;
+          itemsCounter(itemsCount, requestURL);
+          json.results.forEach((entity, i) => {
+            const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
+            const itemsLikes = likesArr.filter(
+              (el) => el.item_id === `${entity.name + i}`,
+            );
+            if (itemsLikes.length > 0) {
+              item.likes = itemsLikes[0].likes;
+            }
+            createCard(item, i).then((json) => cards.push(json));
+          });
+          resolve('Ok');
         });
-        resolve('Ok');
-      });
     });
     promise2.then(() => {
       const paginator = new Paginator(cards, 20, pages, container, 5);
       const ok = paginator.init();
-      setTimeout(() => {
-        container.classList.remove('no-display');
-        container.classList.add('d-flex');
-        pagesContainer.removeChild(image);
-        document.documentElement.style.overflow = '';
-        if (ok) {
-          pages.classList.remove('no-display');
-          pages.classList.add('d-flex');
-        } else {
-          pages.classList.add('no-display');
-          pages.classList.remove('d-flex');
-        }
-      }, 3000);
+      container.classList.remove('no-display');
+      container.classList.add('d-flex');
+      pagesContainer.removeChild(image);
+      document.documentElement.style.overflow = '';
+      if (ok) {
+        pages.classList.remove('no-display');
+        pages.classList.add('d-flex');
+      } else {
+        pages.classList.add('no-display');
+        pages.classList.remove('d-flex');
+      }
     });
   });
-}
+};
 
 export default populatePage;
