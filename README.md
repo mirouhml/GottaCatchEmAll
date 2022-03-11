@@ -5,9 +5,8 @@
 >This is a web app where users can view all pokémons with their respective characteristics, abilities and types fetched from the Pokeapi. Users can like pokemon cards, view the number of likes each card has. Users can also leave comments and view comments made by others !!
 
 
-![localhost_8080_](https://user-images.githubusercontent.com/20567503/157763180-11d057c5-6091-40f3-b0db-8fa0a6e7ad23.png)
-![localhost_8080_ (3)](https://user-images.githubusercontent.com/20567503/157765336-09f984d5-8052-4cbd-b157-62646c60b5b3.png)
-
+![localhost_8080_ (5)](https://user-images.githubusercontent.com/20567503/157920880-31b86de7-0b21-4756-af8e-4abbe4cb45f0.png)
+![localhost_8080_ (4)](https://user-images.githubusercontent.com/20567503/157920894-57d9a062-b405-4941-9540-affbb0df6d99.png)
 
 ## Built With
 
