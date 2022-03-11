@@ -22,7 +22,6 @@ export default class Paginator {
           this.buildPagination();
         } else if ((e.target.id === 'next' || e.target.textContent === '»')) {
           if (this.currentPage < this.numberOfPages - 2) {
-            console.log(this.currentPage);
             if ((this.currentPage - this.maxPages)>=this.numberOfPages)
               this.currentPage = this.numberOfPages;
             else (this.currentPage = this.currentPage + this.maxPages)
